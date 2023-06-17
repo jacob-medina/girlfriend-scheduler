@@ -15,7 +15,10 @@ function to12Hour(time) {
 
 
 function saveTimeBlock(event) {
-  const timeBlock = $(event.target).parent();
+  var timeBlock = $(event.target).parent();
+  if (!timeBlock.is(".time-block")) {
+    timeBlock = timeBlock.parent();
+  }
   const textArea = timeBlock.find('.description');
 
   localStorage.setItem(timeBlock.attr('id'), textArea.val());
@@ -45,7 +48,6 @@ function generateTimeBlocks() {
 
     $('#time-block-container').append(timeBlock);
   }
-  
 }
 
 
@@ -99,12 +101,12 @@ function pullFromLocalStorage() {
 }
 
 
-function movePen(event) {
-  $('#pen').css({
-    left: event.pageX,
-    top: event.pageY
-  });
-}
+// function movePen(event) {
+//   $('#pen').css({
+//     left: event.pageX,
+//     top: event.pageY
+//   });
+// }
 
 
 // executes a single time once the webpage loads
