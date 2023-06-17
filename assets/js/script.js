@@ -19,6 +19,9 @@ function saveTimeBlock(event) {
   const textArea = timeBlock.find('.description');
 
   localStorage.setItem(timeBlock.attr('id'), textArea.val());
+
+  const savedNotification = document.getElementById("saved-notification");
+  bootstrap.Toast.getOrCreateInstance(savedNotification).show();
 }
 
 
@@ -26,9 +29,16 @@ function saveTimeBlock(event) {
 function generateTimeBlocks() {
   for (var time = minTimeBlock; time <= maxTimeBlock; time++) {
     var timeBlock = $('<section>');
-    timeBlock.attr('id', 'hour-' + time)
+    timeBlock.attr('id', 'hour-' + time);
     timeBlock.attr('class', 'row time-block');
-    timeBlock.append('<div class="col-2 col-md-1 hour text-center py-3">' + to12Hour(time) + '</div><textarea class="col-8 col-md-10 description" rows="3"> </textarea><button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
+    timeBlock.append(`
+    <div class="col-2 col-md-2 col-lg-1 hour text-center py-3">
+      <span class="col-12 fs-2 align-middle">${to12Hour(time)}</span>
+    </div>
+    <textarea class="col-8 col-md-9 col-lg-10 description fs-2" rows="2"></textarea>
+    <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+      <span class="material-symbols-outlined">favorite</span>
+    </button>`);
 
     var saveButton = timeBlock.find('.saveBtn');
     saveButton.on('click', saveTimeBlock);
@@ -89,6 +99,14 @@ function pullFromLocalStorage() {
 }
 
 
+function movePen(event) {
+  $('#pen').css({
+    left: event.pageX,
+    top: event.pageY
+  });
+}
+
+
 // executes a single time once the webpage loads
 function init() {
   generateTimeBlocks();
@@ -98,6 +116,8 @@ function init() {
   update();
 
   pullFromLocalStorage();
+
+  $(document).mousemove(movePen);
 }
 
 
