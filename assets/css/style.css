@@ -3,7 +3,7 @@
   --dark: black;
   --red: #c95e8d;
   --grayed-out: rgba(128, 128, 128, 0.539);
-  --future-color: rgb(220, 220, 252);
+  --future-color: rgba(0, 0, 255, 0.167);
   --cursive-font: 'Sue Ellen Francisco', 'Klee One', cursive;
   --sans-serif-font: 'Urbanist', sans-serif;
 }
@@ -12,7 +12,7 @@ body {
   font-family: var(--cursive-font);
   /* font-size: 32px; */
   background-color: var(--light);
-  background-image: url("https://img.freepik.com/free-photo/white-paper-background_1154-683.jpg");
+  background-image: url("../images/paper-background.jpg");
   background-size: 500px;
 }
 
