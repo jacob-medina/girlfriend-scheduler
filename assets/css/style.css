@@ -2,6 +2,8 @@
   --light: #faf4ff;
   --dark: black;
   --red: #c95e8d;
+  --grayed-out: rgba(128, 128, 128, 0.539);
+  --future-color: rgb(220, 220, 252);
   --cursive-font: 'Sue Ellen Francisco', 'Klee One', cursive;
   --sans-serif-font: 'Urbanist', sans-serif;
 }
@@ -23,8 +25,13 @@ body {
 }
 
 header,
+footer,
 .hour {
   font-family: var(--sans-serif-font);
+}
+
+.cursive {
+  font-family: var(--cursive-font);
 }
 
 strong {
@@ -34,6 +41,10 @@ strong {
 h1 {
   font-weight: 600;
   margin-bottom: 2rem;
+}
+
+#hero img {
+  height: min(300px, 80vw);
 }
 
 #currentDay {
@@ -60,14 +71,17 @@ textarea {
   border-bottom: 1px solid blue;
 }
 
+.time-block:first-child {
+  border-top: 1px solid blue;
+}
+
 .hour {
   color: var(--dark);
   border-right: 2px solid red;
 }
 
 .past {
-  background-color: #d3d3d374;
-  color: var(--dark);
+  /* background-color: var(--grayed-out); */
 }
 
 .past textarea {
@@ -94,7 +108,7 @@ textarea {
   content: "NOW!";
   display: block;
   font-family: var(--cursive-font);
-  font-size: 2rem;
+  font-size: min(2rem, 1rem + 2vw);
   color: red;
   transform: rotate(-10deg);
 }
@@ -114,8 +128,7 @@ textarea {
 }
 
 .future {
-  /* background-color: #77dd77; */
-  color: white;
+  background-color: var(--future-color);
 }
 
 .saveBtn {
@@ -125,17 +138,18 @@ textarea {
   color: var(--dark);
 }
 
-.saveBtn:hover::after {
-  content: "Promise";
-  position: absolute;
-  display: block;
-  bottom: 0;
-  left: 30%;
+.saveBtn p {
+  font-family: var(--sans-serif-font);
+  font-size: 80%;
+}
+
+.saveBtn span {
+  transition: all 0.2s ease-in-out;
 }
 
 .saveBtn:hover span {
   color: var(--red);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .saveBtn:hover .material-symbols-outlined {
@@ -149,22 +163,25 @@ textarea {
 .toast-container {
   z-index: 1;
   color: var(--dark);
-  font-size: 200%;
+  font-family: var(--sans-serif-font);
 }
 
-/* #pen {
-  display: none;
-} */
+.toast-body {
+  font-size: 150%;
+}
 
-/* @media (pointer: fine) {
-  #pen {
-    width: 40px;
-    height: 40px;
-    display: block;
-    position: absolute;
-    transform: translateY(-40px);
-    z-index: 1;
-    pointer-events: none;
-    border: red solid ;
+footer a {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 992px) {
+  #hero {
+    width: 75%;
   }
-} */
+
+  #hero img {
+    height: 400px;
+  }
+}

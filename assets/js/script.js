@@ -6,11 +6,11 @@ var updateInterval;
 
 // converts 24 hour time to 12 hour time
 function to12Hour(time) {
-  if (time < 12) { return time + " AM"; }
+  if (time < 12) { return time + " am"; }
 
-  else if (time === 12) { return "12 PM"; }
+  else if (time === 12) { return "12 pm"; }
 
-  else { return (time - 12) + " PM"; }
+  else { return (time - 12) + " pm"; }
 }
 
 
@@ -31,16 +31,22 @@ function saveTimeBlock(event) {
 // generates time block elements and their child elements
 function generateTimeBlocks() {
   for (var time = minTimeBlock; time <= maxTimeBlock; time++) {
+    var placeholderText = "";
+    if (time === 9) {
+      placeholderText = "Make pancakes";
+    }
+
     var timeBlock = $('<section>');
     timeBlock.attr('id', 'hour-' + time);
     timeBlock.attr('class', 'row time-block');
     timeBlock.append(`
-    <div class="col-2 col-md-2 col-lg-1 hour text-center py-3">
-      <span class="col-12 fs-2 align-middle">${to12Hour(time)}</span>
+    <div class="col-2 col-md-2 col-lg-1 hour text-center px-1 px-2-md py-3">
+      <span class="col-12 fs-3 align-middle">${to12Hour(time)}</span>
     </div>
-    <textarea class="col-8 col-md-9 col-lg-10 description fs-2" rows="2"></textarea>
-    <button class="btn saveBtn col-2 col-md-1" aria-label="save">
-      <span class="material-symbols-outlined">favorite</span>
+    <textarea class="col-8 col-md-9 col-lg-10 description fs-2" rows="2" placeholder="${placeholderText}"></textarea>
+    <button class="btn saveBtn col-2 col-md-1 d-flex flex-column justify-content-center align-items-center" aria-label="save">
+      <span class="text-center material-symbols-outlined">favorite</span>
+      <p class="text-center mb-0">Promise</p>
     </button>`);
 
     var saveButton = timeBlock.find('.saveBtn');
@@ -101,14 +107,6 @@ function pullFromLocalStorage() {
 }
 
 
-// function movePen(event) {
-//   $('#pen').css({
-//     left: event.pageX,
-//     top: event.pageY
-//   });
-// }
-
-
 // executes a single time once the webpage loads
 function init() {
   generateTimeBlocks();
@@ -118,8 +116,6 @@ function init() {
   update();
 
   pullFromLocalStorage();
-
-  $(document).mousemove(movePen);
 }
 
 
