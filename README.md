@@ -34,7 +34,7 @@ These files can be found through the following path (from root):
 
 - `index.html`
 - `assets/css/style.css`
-- `assets/scripts/script.js`
+- `assets/js/script.js`
 
 
 ## Credits
