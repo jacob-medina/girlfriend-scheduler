@@ -31,6 +31,7 @@ function saveTimeBlock(event) {
 // generates time block elements and their child elements
 function generateTimeBlocks() {
   for (var time = minTimeBlock; time <= maxTimeBlock; time++) {
+    
     var placeholderText = "";
     if (time === 9) {
       placeholderText = "Make pancakes";
@@ -120,3 +121,9 @@ function init() {
 
 
 $(init);
+
+
+
+var timeBlock = $("saveBtn").parent();
+var textArea = timeBlock.find(".description");
+var value = textArea.val();
