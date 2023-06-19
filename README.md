@@ -9,7 +9,7 @@ Schedule a wonderful day with your girlfriend using this simple planner app. Jot
 
 ![Website Preview](./assets/images/website-preview-1.png)
 
-The aim of this project is to provide a themed planning experience to inspire fun and thoughtfullness in scheduling a day your partner.
+The aim of this project is to provide a themed planning experience to inspire fun and thoughtfullness in scheduling a day for your partner.
 
 Using Day.js, Girlfriend Scheduler automatically updates to the user's current date and time to inform them if activities are in the past, present, or future. When the user "Promises" to do an activity, it is saved to their local storage and persists between sessions.
 
@@ -21,9 +21,9 @@ Using Day.js, Girlfriend Scheduler automatically updates to the user's current d
 Users may do the following:
 
 - Resize the window to get a layout that is appropriate for the screen dimensions
-- Click the **Get Started** to scroll down to the scheduler section of the website
-- Click and type inside a time block to add an activity to it
-- Click the **Promise** button to save the activity
+- Click the **Get Started** button to scroll down to the scheduler section of the website
+- Type inside a time block to add an activity to it
+- Click the **Promise** button to save the activity to local storage
 
 
 ## Code Source
@@ -51,6 +51,8 @@ The images used in this project are not mine. Here is the information for them:
 
 - Highlight Mark
   - > Link: [https://cutewallpaper.org/24x/8hxyrt5ch/1780132511.html](https://cutewallpaper.org/24x/8hxyrt5ch/1780132511.html)
+
+The heart icon in each **Promise** button was used from [Google Fonts](https://fonts.google.com/icons).
 
 The fonts used in this project are from [Google Fonts](https://fonts.google.com/), listed below:
 - Urbanist
